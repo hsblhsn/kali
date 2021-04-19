@@ -40,7 +40,9 @@ Just run `docker rm kali`
 
 List of tools that comes pre-installed.
 
-1. nmap
-2. netcat
-3. openvpn
-4. **I will add more. Open an issue for request.**
++ nmap
++ netcat
++ openvpn
++ metasploit-framework
++ **I will add more. To request, please open an issue**
+
