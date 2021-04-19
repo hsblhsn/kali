@@ -2,7 +2,7 @@
 
 A `kalilinux/kali-rolling` based docker image that comes with all must-needed tools.
 
-# Run
+## Install
 
 At first you have to run the container.
 
@@ -10,7 +10,7 @@ At first you have to run the container.
 2. We are mapping a port to our host to the docker container port: `1337`
 3. We are giving the container a name to keep it easy to call later: `kali`
 
-### Step 1
+#### Step 1
 
 Pull the docker image.
 
@@ -18,7 +18,7 @@ Pull the docker image.
 docker pull ghcr.io/hsblhsn/kali:latest
 ```
 
-### Step 2
+#### Step 2
 
 Create the directory that will be mounted inside the container as a shared directory.
 
@@ -26,7 +26,7 @@ Create the directory that will be mounted inside the container as a shared direc
 mkdir -p ~/work
 ```
 
-### Step 3
+#### Step 3
 
 Run the docker image.
 
@@ -34,7 +34,9 @@ Run the docker image.
 docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 ghcr.io/hsblhsn/kali:latest
 ```
 
-From now, just start and execute the container.
+## Run
+
+If you have completely followed the installation step, from now, just start and execute the container.
 
 ```sh
 docker start kali
