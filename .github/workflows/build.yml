@@ -2,17 +2,26 @@ on:
   push:
 
 jobs:
-  build-svc:
+  build:
+    name: Build and push docker image.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - 
         name: Checkout repository
-      - uses: pmorelli92/github-container-registry-build-push@1.0.1
-        name: Build and Publish latest service image
+        uses: actions/checkout@v2
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
         with:
-          # Read note below to see how to generate the PAT
-          personal-access-token: ${{secrets.GHCR_PAT}}
-          docker-image-name: kali
-          docker-image-tag: latest
-          dockerfile-path: ./Dockerfile
-          build-context: .
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_PAT }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            ghcr.io/${{github.repository}}:latest
+            ghcr.io/${{github.repository}}:${{github.sha}}
