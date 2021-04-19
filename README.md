@@ -2,7 +2,7 @@
 
 A `kalilinux/kali-rolling` based docker image that comes with all must-needed tools.
 
-# Run
+## Install
 
 At first you have to run the container.
 
@@ -10,12 +10,33 @@ At first you have to run the container.
 2. We are mapping a port to our host to the docker container port: `1337`
 3. We are giving the container a name to keep it easy to call later: `kali`
 
+#### Step 1
+
+Pull the docker image.
+
 ```sh
-mkdir -p ~/work
-docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 kali
+docker pull ghcr.io/hsblhsn/kali:latest
 ```
 
-From now, just start and execute the container.
+#### Step 2
+
+Create the directory that will be mounted inside the container as a shared directory.
+
+```sh
+mkdir -p ~/work
+```
+
+#### Step 3
+
+Run the docker image.
+
+```sh
+docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 ghcr.io/hsblhsn/kali:latest
+```
+
+## Run
+
+If you have completely followed the installation step, from now, just start and execute the container.
 
 ```sh
 docker start kali
@@ -40,9 +61,8 @@ Just run `docker rm kali`
 
 List of tools that comes pre-installed.
 
-+ nmap
-+ netcat
-+ openvpn
-+ metasploit-framework
-+ **I will add more. To request, please open an issue**
-
+- nmap
+- netcat
+- openvpn
+- metasploit-framework
+- **I will add more. To request, please open an issue**
