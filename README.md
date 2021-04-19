@@ -11,8 +11,9 @@ At first you have to run the container.
 3. We are giving the container a name to keep it easy to call later: `kali`
 
 ```sh
+docker pull ghcr.io/hsblhsn/kali:latest
 mkdir -p ~/work
-docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 kali
+docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 ghcr.io/hsblhsn/kali:latest
 ```
 
 From now, just start and execute the container.
