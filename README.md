@@ -10,9 +10,27 @@ At first you have to run the container.
 2. We are mapping a port to our host to the docker container port: `1337`
 3. We are giving the container a name to keep it easy to call later: `kali`
 
+### Step 1
+
+Pull the docker image.
+
 ```sh
 docker pull ghcr.io/hsblhsn/kali:latest
+```
+
+### Step 2
+
+Create the directory that will be mounted inside the container as a shared directory.
+
+```sh
 mkdir -p ~/work
+```
+
+### Step 3
+
+Run the docker image.
+
+```sh
 docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 ghcr.io/hsblhsn/kali:latest
 ```
 
@@ -41,9 +59,8 @@ Just run `docker rm kali`
 
 List of tools that comes pre-installed.
 
-+ nmap
-+ netcat
-+ openvpn
-+ metasploit-framework
-+ **I will add more. To request, please open an issue**
-
+- nmap
+- netcat
+- openvpn
+- metasploit-framework
+- **I will add more. To request, please open an issue**
