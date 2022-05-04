@@ -6,7 +6,7 @@ A `kalilinux/kali-rolling` based docker image that comes with all must-needed to
 
 At first you have to run the container.
 
-1. We are sharing a directory from our host to the docker container: `~/work`.
+1. We are sharing a directory from our host to the docker container: `~/workspace`.
 2. We are mapping a port to our host to the docker container port: `1337`
 3. We are giving the container a name to keep it easy to call later: `kali`
 
@@ -23,7 +23,7 @@ docker pull ghcr.io/hsblhsn/kali:latest
 Create the directory that will be mounted inside the container as a shared directory.
 
 ```sh
-mkdir -p ~/work
+mkdir -p ~/workspace
 ```
 
 #### Step 3
@@ -31,7 +31,7 @@ mkdir -p ~/work
 Run the docker image.
 
 ```sh
-docker run -it -v ~/work:/root/work --name=kali -p 1337:1337 ghcr.io/hsblhsn/kali:latest
+docker run -it -v ~/workspace:/root/workspace --name=kali -p 1337:1337 ghcr.io/hsblhsn/kali:latest
 ```
 
 ## Run
@@ -47,7 +47,7 @@ docker exec -it kali bash
 
 #### I want to copy a file to the kali container. What to do?
 
-Just copy the file to `~/work` directory, you will be ables to access it from `/root/work` directory inside your docker container.
+Just copy the file to `~/workspace` directory, you will be ables to access it from `/root/workspace` directory inside your docker container.
 
 #### I want to back-connect a server. What to do?
 
